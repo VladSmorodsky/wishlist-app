@@ -1,3 +1,4 @@
+from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.generics import ListAPIView, RetrieveAPIView, ListCreateAPIView
 
 from wishlist_app.api.serializers import WishSerializer, WishDetailSerializer
@@ -7,6 +8,7 @@ from wishlist_app.models import Wish
 class WishListCreateAPIView(ListCreateAPIView):
     queryset = Wish.objects.all()
     serializer_class = WishSerializer
+    parser_classes = (MultiPartParser, FormParser)
 
     def get_queryset(self):
         """
