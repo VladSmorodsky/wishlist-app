@@ -2,6 +2,7 @@
 
 Wishlist App is a DRF application for storing and sharing wishes.
 It's possible to:
+
 - Login to the system
 - Get wishes
 - Get wish info
@@ -21,19 +22,26 @@ It's possible to:
 - **`DB_PASSWORD`**: database user password.
 - **`DB_HOST`**: database host.
 - **`DB_PORT`**: database port.
+- **`ALLOWED_HOST`**: list of available hosts. It should be string with comma separated values (e.g.
+  `'test.com,test.domai.com'`).
 
 3. Run `docker-compose.yml` script:
 
 ```shell
 docker compose up --build -d
 ```
+
 4. To create a superuser for entering into django admin, run the next command:
+
 ```shell
 docker compose run -it api make shell
 ```
+
 And then run python commands for creating a superuser:
+
 ```python
 from accounts.models import User
+
 user = User(email="<superuser_email>", is_staff=True, is_superuser=True)
 user.set_password("<superuser_password>")
 user.save()
