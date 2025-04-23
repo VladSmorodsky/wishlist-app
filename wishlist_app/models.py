@@ -6,7 +6,7 @@ from accounts.models import User
 class ActiveWishListManager(models.Manager):
     def get_queryset(self) -> models.QuerySet:
         """
-        Use active wishes only. Other users are interested in watching active wishes.
+        Get queryset for user's active wishes.
         :return:
         """
         return super().get_queryset().filter(is_active=True)
