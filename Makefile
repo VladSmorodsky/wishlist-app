@@ -1,13 +1,13 @@
 port ?= '9000'
 
 makemigrations:
-	python manage.py makemigrations
+	docker compose exec -it api python manage.py makemigrations
 
 migrate:
-	python manage.py migrate
+	docker compose exec -it api python manage.py migrate
 
 runserver:
-	python manage.py runserver 0.0.0.0:$(port)
+	docker compose exec -it api python manage.py runserver 0.0.0.0:$(port)
 
 shell:
-	python manage.py shell
+	docker compose exec -it api python manage.py shell
