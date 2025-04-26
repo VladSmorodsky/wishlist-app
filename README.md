@@ -24,6 +24,7 @@ It's possible to:
 - **`DB_PORT`**: database port.
 - **`ALLOWED_HOST`**: list of available hosts. It should be string with comma separated values (e.g.
   `'test.com,test.domai.com'`).
+- **`CELERY_BROKER_URL`**: Celery broker url.
 - **`EMAIL_HOST`**: email host provider domain
 - **`EMAIL_PORT`**: email port
 - **`EMAIL_HOST_USER`**: host user's email
