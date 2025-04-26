@@ -4,9 +4,11 @@ from wishlist_app.models import Wish
 
 
 class WishSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField(required=False)
+
     class Meta:
         model = Wish
-        fields = ['id', 'name', 'description', 'url', 'user']
+        fields = ['id', 'name', 'description', 'url', 'user', 'image']
 
 
 class WishDetailSerializer(serializers.ModelSerializer):
