@@ -20,6 +20,6 @@ app.autodiscover_tasks(['celery_tasks.tasks'])
 app.conf.beat_schedule = {
     'log_users_count': {
         'task': 'celery_tasks.tasks.log_users_count',
-        'schedule': timedelta(seconds=10),
+        'schedule': timedelta(minutes=10),
     }
 }
