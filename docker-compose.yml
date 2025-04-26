@@ -26,6 +26,36 @@ services:
       timeout: 10s
       retries: 1
 
+  redis:
+    image: redis:7.4.2
+    ports:
+      - '6379:6379'
+
+  celery:
+    build: .
+    volumes:
+      - .:/app
+    command: ./celery_tasks/start_celery.sh
+    depends_on:
+      - redis
+
+  celery-beat:
+    build: .
+    volumes:
+      - .:/app
+    command: ./celery_tasks/start_celery_beat.sh
+    depends_on:
+      - redis
+
+  flower:
+    image: mher/flower:2.0.1
+    environment:
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+    ports:
+      - "5555:5555"
+    depends_on:
+      - redis
+
 volumes:
-  wishlist_data: {}
-  media_data: {}
+  wishlist_data: { }
+  media_data: { }
