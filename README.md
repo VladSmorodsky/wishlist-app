@@ -24,6 +24,15 @@ It's possible to:
 - **`DB_PORT`**: database port.
 - **`ALLOWED_HOST`**: list of available hosts. It should be string with comma separated values (e.g.
   `'test.com,test.domai.com'`).
+- **`CELERY_BROKER_URL`**: Celery broker url.
+- **`EMAIL_HOST`**: email host provider domain
+- **`EMAIL_PORT`**: email port
+- **`EMAIL_HOST_USER`**: host user's email
+- **`EMAIL_HOST_PASSWORD`**: host user's password
+- **`EMAIL_USE_TLS`**: use TLS connection (True or False)
+- **`DEFAULT_FROM_MAIL`**: define from what email messages will be sent by default
+- **`EMAIL_BACKEND`**: define django email backend to work with emails. Use next value for debug environment:
+  `django.core.mail.backends.console.EmailBackend`
 
 3. Run `docker-compose.yml` script:
 
