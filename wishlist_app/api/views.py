@@ -1,5 +1,6 @@
 from django.db.models.query import QuerySet
 from rest_framework.generics import ListAPIView, RetrieveAPIView, ListCreateAPIView, GenericAPIView
+from rest_framework.parsers import MultiPartParser, FormParser
 
 from wishlist_app.api.serializers import WishSerializer, WishDetailSerializer
 from wishlist_app.models import Wish
@@ -19,6 +20,7 @@ class ActiveWishListMixin(GenericAPIView):
 class WishListCreateAPIView(ListCreateAPIView, ActiveWishListMixin):
     queryset = Wish.objects.all()
     serializer_class = WishSerializer
+    parser_classes = (MultiPartParser, FormParser)
 
 
 class UserWishListAPIView(ListAPIView, ActiveWishListMixin):
